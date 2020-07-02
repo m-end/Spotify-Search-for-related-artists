@@ -1,0 +1,22 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Spotify-検索</title>
+</head>
+<body>
+
+	<form method="get" action="search" th:object="${searchForm}">
+		<!-- アーティストの名前を入力 -->
+		<label>アーティストの検索</label> <input type="text" name="q" th:feild="*{q}" placeholder="アーティスト名"></input>
+
+		<input type="submit" value="表示" size="60"></input>
+	</form>
+
+	<form method="get" action="related" th:object="${searchForm}">
+	<label>類似アーティストの検索</label>
+	<input type="text" th:field="*{id}" placeholder="アーティストid">
+	<input type="submit" value="表示" size=60>
+	<br th:if="${#fields.hasErrors('id')}" th:errors="*{id}"></br>
+	</form>
+</body>
+</html>

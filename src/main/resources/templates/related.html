@@ -1,0 +1,28 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" th:href="@{/css/table.css}" href="/css/table.css">
+</head>
+<body>
+	<table>
+		<thead>
+			<tr>
+				<th>アーティスト</th>
+				<th>ジャンル</th>
+				<th>人気</th>
+				<th>アーティストID</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:object="${artists}" th:each="artists : ${artist}">
+				<td th:text="*{name}"></td>
+				<td th:text="*{genres}"></td>
+				<td th:text="*{popularity}"></td>
+				<td th:text="*{id}"></td>
+			</tr>
+		</tbody>
+	</table>
+	<a href="/">戻る</a>
+</body>
+</html>
