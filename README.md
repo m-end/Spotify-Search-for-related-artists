@@ -22,3 +22,4 @@ Set your Client ID and Client Secret in the application properties.
 ```mvn spring-boot:run```
 
 # License
+MIT
