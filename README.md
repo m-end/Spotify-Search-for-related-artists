@@ -1,6 +1,8 @@
 # Spitify-Search
 Spotify api using springboot  
-This app can find similar artists
+This app can find similar artists  
+
+![sample](https://user-images.githubusercontent.com/66352968/86894737-73040d80-c13e-11ea-9242-cc09d14eb2b1.png)
 
 # Prerequisites
 - Java 8  
