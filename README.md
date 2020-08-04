@@ -1,4 +1,4 @@
-# Spitify-Search
+# Spotify-Search
 Spotify api using springboot  
 This app can find similar artists  
 
