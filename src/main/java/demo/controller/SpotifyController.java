@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import demo.model.Artist;
+import demo.model.Artist.InnerArtist;
 import demo.model.SearchForm;
 import demo.model.SearchItem;
 import demo.service.SpotifyService;
@@ -20,7 +21,7 @@ import demo.service.SpotifyService;
 public class SpotifyController {
 
 	@Autowired
-	private SpotifyService spotifyClient;
+	private SpotifyService spotifyService;
 
 	@GetMapping("/")
 	public String form(@ModelAttribute SearchForm form, OAuth2Authentication oAuth2Authentication, Model model) {
@@ -36,9 +37,25 @@ public class SpotifyController {
 		if (result.hasErrors()) {
 			return "index";
 		}
-		Artist artist = spotifyClient.getArtist(oAuth2Authentication, id);
-		model.addAttribute("artist", artist.getList());
-		return "related";
+
+		InnerArtist inArtist = spotifyService.getId(oAuth2Authentication, id);
+		model.addAttribute("name" ,inArtist.getName());
+		Artist artist = spotifyService.getArtist(oAuth2Authentication, id);
+		model.addAttribute("result", artist.getList());
+		id =artist.getList().get(0).getId();
+		Artist secondArtist = spotifyService.getArtist(oAuth2Authentication, id);
+		model.addAttribute("secondResult" , secondArtist.getList());
+		id =artist.getList().get(1).getId();
+		secondArtist = spotifyService.getArtist(oAuth2Authentication, id);
+		model.addAttribute("thirdResult" ,secondArtist.getList());
+		id =artist.getList().get(2).getId();
+		secondArtist = spotifyService.getArtist(oAuth2Authentication, id);
+		model.addAttribute("fourthResult" ,secondArtist.getList());
+		id =artist.getList().get(3).getId();
+		secondArtist = spotifyService.getArtist(oAuth2Authentication, id);
+		model.addAttribute("fifthResult" ,secondArtist.getList());
+
+		return "cytoscape";
 	}
 
 	//アーティスト情報検索
@@ -50,7 +67,7 @@ public class SpotifyController {
 		if (result.hasErrors()) {
 			return "index";
 		}
-		SearchItem searchItem = spotifyClient.search(oAuth2Authentication, q);
+		SearchItem searchItem = spotifyService.search(oAuth2Authentication, q);
 		model.addAttribute("searchItem", searchItem.getInnerItem().getItem());
 		return "search";
 	}

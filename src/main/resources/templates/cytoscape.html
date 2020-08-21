@@ -1,0 +1,142 @@
+<!DOCTYPE xmlns:th="http://www.thymeleaf.org">
+<html>
+<head>
+<meta charset="UTF-8">
+<title>result</title>
+<script type="text/javascript"
+	src="webjars/cytoscape/dist/cytoscape.min.js"></script>
+
+</head>
+<style>
+#cy {
+	width: 100%;
+	height: 100%;
+}
+</style>
+<body>
+	<div id="cy"></div>
+	<script th:inline="javascript">
+
+
+		var cy = cytoscape({
+			container : document.getElementById('cy'),
+			elements : [
+				{ data : {id :/*[[${name}]]*/  "a"} },
+				{ data : {id :/*[[${result[0].name}]]*/ "b"} } ,
+				{ data : {id :/*[[${result[1].name}]]*/ "c"} } ,
+				{ data : {id :/*[[${result[2].name}]]*/ "d"} } ,
+				{ data : {id :/*[[${result[3].name}]]*/ "e"} } ,
+				{ data : {id :/*[[${result[4].name}]]*/ "f"} } ,
+				/*2組目*/
+				{ data : {id :/*[[${secondResult[0].name}]]*/ "g"} } ,
+				{ data : {id :/*[[${secondResult[1].name}]]*/ "h"} } ,
+				{ data : {id :/*[[${secondResult[2].name}]]*/ "i"} } ,
+				{ data : {id :/*[[${secondResult[3].name}]]*/ "j"} } ,
+				{ data : {id :/*[[${secondResult[4].name}]]*/ "k"} } ,
+				/*3組目*/
+				{ data : {id :/*[[${thirdResult[0].name}]]*/ "l"}},
+				{ data : {id :/*[[${thirdResult[1].name}]]*/ "m"}},
+				{ data : {id :/*[[${thirdResult[2].name}]]*/ "n"}},
+				{ data : {id :/*[[${thirdResult[3].name}]]*/ "o"}},
+				{ data : {id :/*[[${thirdResult[4].name}]]*/ "p"}},
+				/*4組目*/
+				{ data : {id :/*[[${fourthResult[0].name}]]*/ "q"}},
+				{ data : {id :/*[[${fourthResult[1].name}]]*/ "r"}},
+				{ data : {id :/*[[${fourthResult[2].name}]]*/ "s"}},
+				{ data : {id :/*[[${fourthResult[3].name}]]*/ "t"}},
+				{ data : {id :/*[[${fourthResult[4].name}]]*/ "u"}},
+				/*5組目*/
+				{ data : {id :/*[[${fifthResult[0].name}]]*/ "v"}},
+				{ data : {id :/*[[${fifthResult[1].name}]]*/ "w"}},
+				{ data : {id :/*[[${fifthResult[2].name}]]*/ "x"}},
+				{ data : {id :/*[[${fifthResult[3].name}]]*/ "y"}},
+				{ data : {id :/*[[${fifthResult[4].name}]]*/ "z"}},
+
+
+				{ data :{ id : 'ab',
+						  source :/*[[${result[0].name}]]*/ 'b', target : /*[[${name}]]*/ "a"} },
+				{ data :{ id : 'ac',
+						  source :/*[[${result[1].name}]]*/ 'c', target : /*[[${name}]]*/ "a"} },
+				{ data :{ id : 'ad',
+						  source :/*[[${result[2].name}]]*/ 'd', target : /*[[${name}]]*/ "a"} },
+				{ data :{ id : 'ae',
+						  source :/*[[${result[3].name}]]*/ 'e', target : /*[[${name}]]*/ "a"} },
+				{ data : {id : 'af',
+					      source :/*[[${result[4].name}]]*/ 'f', target : /*[[${name}]]*/ "a"} },
+					      /*2組目*/
+				{ data :{ id : 'bg',
+						 source :/*[[${secondResult[0].name}]]*/ 'g', target : /*[[${result[0].name}]]*/'b' } },
+				{ data :{ id : 'bh',
+						 source :/*[[${secondResult[1].name}]]*/ 'h', target :/*[[${result[0].name}]]*/ 'b' } },
+				{ data :{ id : 'bi',
+						 source :/*[[${secondResult[2].name}]]*/ 'i', target : /*[[${result[0].name}]]*/'b' } },
+				{ data :{ id : 'bj',
+						 source :/*[[${secondResult[3].name}]]*/ 'j', target : /*[[${result[0].name}]]*/'b' } },
+				{ data :{ id : 'bk',
+						 source :/*[[${secondResult[4].name}]]*/ 'k', target :/*[[${result[0].name}]]*/ 'b' } },
+				/*3組目*/
+				{ data :{ id : "cl" ,
+						 source :/*[[${thirdResult[0].name}]]*/ "l" , target : /*[[${result[1].name}]]*/ "c"}},
+				{ data :{ id : "cm" ,
+					 	 source :/*[[${thirdResult[1].name}]]*/ "m" , target : /*[[${result[1].name}]]*/ "c"}},
+				{ data :{ id : "cn" ,
+					 	 source :/*[[${thirdResult[2].name}]]*/ "n" , target : /*[[${result[1].name}]]*/ "c"}},
+				{ data :{ id : "co" ,
+					 	 source :/*[[${thirdResult[3].name}]]*/ "o" , target : /*[[${result[1].name}]]*/ "c"}},
+				{ data :{ id : "cp" ,
+					 	 source :/*[[${thirdResult[4].name}]]*/ "p" , target : /*[[${result[1].name}]]*/ "c"}},
+				/*4組目*/
+				{ data :{ id : "dq" ,
+						 source :/*[[${fourthResult[0].name}]]*/ "q" , target : /*[[${result[2].name}]]*/ "d"}},
+				{ data :{ id : "dr" ,
+						 source :/*[[${fourthResult[1].name}]]*/ "r" , target : /*[[${result[2].name}]]*/ "d"}},
+				{ data :{ id : "ds" ,
+						 source :/*[[${fourthResult[2].name}]]*/ "s" , target : /*[[${result[2].name}]]*/ "d"}},
+				{ data :{ id : "dt" ,
+					 	 source :/*[[${fourthResult[3].name}]]*/ "t" , target : /*[[${result[2].name}]]*/ "d"}},
+				{ data :{ id : "du" ,
+						 source :/*[[${fourthResult[4].name}]]*/ "u" , target : /*[[${result[2].name}]]*/ "d"}},
+				/*5組目*/
+				{ data :{ id : "ev" ,
+						 source :/*[[${fifthResult[0].name}]]*/ "q" , target : /*[[${result[3].name}]]*/ "e"}},
+				{ data :{ id : "ew" ,
+						 source :/*[[${fifthResult[1].name}]]*/ "r" , target : /*[[${result[3].name}]]*/ "e"}},
+				{ data :{ id : "ex" ,
+						 source :/*[[${fifthResult[2].name}]]*/ "s" , target : /*[[${result[3].name}]]*/ "e"}},
+				{ data :{ id : "ey" ,
+					 	 source :/*[[${fifthResult[3].name}]]*/ "t" , target : /*[[${result[3].name}]]*/ "e"}},
+				{ data :{ id : "ez" ,
+						 source :/*[[${fifthResult[4].name}]]*/ "u" , target : /*[[${result[3].name}]]*/ "e"}}
+
+			 ],
+			style : [ {
+				selector : 'node',
+				style : {
+					shape : 'ellipse', 'background-color' : 'blue',
+					padding : 10 ,
+					label : 'data(id)'
+				}
+			},
+			{
+				selector : 'edge',
+				style : { 'width' : 3 }
+			}]
+		});
+
+		var layout = cy.layout({
+			  name : 'cose',
+		      fit : true,
+		      padding : 30,
+		      randomize : false,
+		      nodeRepulsion : 400000,
+		      edgeElasticity : 100,
+			});
+
+
+			layout.run();
+
+
+	</script>
+
+</body>
+</html>
