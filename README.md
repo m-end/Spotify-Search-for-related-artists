@@ -1,7 +1,7 @@
 # Spotify-Search
 Spotify api using springboot  
 This app can find related artists  
-![demo](https://user-images.githubusercontent.com/66352968/90969351-6a229c00-e532-11ea-9d5c-843bd52b1855.png)
+![demo](https://user-images.githubusercontent.com/66352968/98438724-7086e400-212f-11eb-94ff-76369f6a8c59.gif)
 # Prerequisites
 - Java 8  
 - Spring Boot 2.2.6  
